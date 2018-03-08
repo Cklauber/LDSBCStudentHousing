@@ -1,0 +1,26 @@
+﻿@model IEnumerable<StudentHousing.Models.ListingModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>You will see the listings here!!!!</h2>
+
+<div>
+
+    <table>
+        @foreach (var ListingItem in Model)
+        {
+            <tr>
+                <td>ID: @ListingItem.Id</td>
+                <br />
+                <td>Name: @ListingItem.Name</td>
+                <br />
+                <td>Description: @ListingItem.Description</td>
+                <td><a asp-action="ViewItem" asp-route-id="@ListingItem.Id">Details</a></td>
+            </tr>
+        }
+    </table>
+
+    <a asp-action="Create">New Listing</a>
+
+</div>

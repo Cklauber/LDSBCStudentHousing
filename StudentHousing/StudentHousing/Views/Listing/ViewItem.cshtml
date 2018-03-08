@@ -1,0 +1,13 @@
+﻿@model StudentHousing.Models.ListingModel
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h2>Listing Description</h2>
+
+<div>
+    <h1>Name: @Model.Name</h1>
+    <h2>Description: @Model.Description</h2>
+    <h3>ID: @Model.Id</h3>
+    <a asp-action="Index">Back to list</a>
+</div>
