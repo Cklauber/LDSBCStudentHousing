@@ -4,146 +4,206 @@
 
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
-<body class="bg-light">
-    <div class="container">
-        <div class="py-5 text-center">
-            <h2>Listing Form</h2>
-            <p class="lead">
-                Please use the following form for listing
-            </p>
-        </div>
 
-
-        <div class="row">
-            <div class="col-md-12 order-md-1">
-                <h4 class="mb-3">Comple This Form</h4>
-                <form class="needs-validation was-validated" method="POST">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="listName">Property Name</label>
-                            <input type="text" class="form-control" id="listName" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="contactName">Contact Name</label>
-                            <input type="text" class="form-control" id="firstName" required />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="phone">Contact Phone#</label>
-                            <input type="text" class="form-control" id="phone" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label for="rent">Rent</label>
-                            <input type="text" class="form-control" id="rent" />
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="utility">Utility</label>
-                            <input type="text" class="form-control" id="utility" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7 mb-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="UtilityOption" />Utility Included with Rent
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="UtilityOption" checked="checked" />Utility NOT Included with Rent
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <hr class="mb-4" />
-                        <div class="col-md-3 mb-3">
-                            <label for="d_payment">Down Payment</label>
-                            <input type="text" class="form-control" id="d_payment" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7 mb-3">
-                            <label for="address1">Address Line#1</label>
-                            <input type="text" class="form-control" id="address1" placeholder="1234 Main St" required />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7 mb-3">
-                            <label for="address2">
-                                Address Line#2
-                                <span class="text-muted">(Optional)</span>
-                            </label>
-                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label for="country">
-                                Country
-                            </label>
-                            <select class="form-control" id="country" required>
-                                <option>Choose...</option>
-                                <option>United States</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="state">State</label>
-                            <select class="form-control" id="state" required>
-                                <option>Choose...</option>
-                                <option>California</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="zip">Zip</label>
-                            <input type="text" class="form-control" id="zip" />
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <hr class="mb-4" />
-                        <div class="col-md-10 mb-3">
-                            <label for="amenities">Amenities</label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="washer" value="yes" />Washer
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="dryer" value="yes" />Dryer
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="refrigerator" value="yes" />Dryer
-                            </label>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-10 mb-3">
-                            <label for="otherAmenities">Other Amenities</label>
-                            <textarea class="form-control" id="otherAmenities"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <hr class="mb-4" />
-                        <div class="col-md-6 col-md-offset-3 mb-3">
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
-                        </div>
-                    </div>
-
-
-
-                </form>
-            </div>
-
-        </div>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Listing Form</h2>
+        <p class="lead">
+            Please use the following form for listing
+        </p>
     </div>
-</body>
+
+
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h3 class="mb-3">Comple This Form</h3>
+            <form class="needs-validation was-validated" method="POST">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="listName">Property Name</label>
+                        <input type="text" class="form-control" id="listName" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="listDescription">Property Description</label>
+                        <input type="text" class="form-control" id="listDescription" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="contactName">Contact Name</label>
+                        <input type="text" class="form-control" id="firstName" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="phone">Contact Phone#</label>
+                        <input type="text" class="form-control" id="phone" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="rent">Rent</label>
+                        <input type="text" class="form-control" id="rent" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="utility">Utility</label>
+                        <input type="text" class="form-control" id="utility" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 mb-3">
+                        <label class="radio-inline">
+                            <input type="radio" name="UtilityOption" />Utility Included with Rent
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="UtilityOption" checked="checked" />Utility NOT Included with Rent
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr class="mb-4" />
+                    <div class="col-md-3 mb-3">
+                        <label for="d_payment">Down Payment</label>
+                        <input type="text" class="form-control" id="d_payment" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 mb-3">
+                        <label for="address1">Address Line#1</label>
+                        <input type="text" class="form-control" id="address1" placeholder="1234 Main St" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 mb-3">
+                        <label for="address2">
+                            Address Line#2
+                            <span class="text-muted">(Optional)</span>
+                        </label>
+                        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 mb-3">
+                        <label for="city">City</label>
+                        <select class="form-control" id="city" required>
+                            <option>Choose...</option>
+                            <option>SLC</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="state">State</label>
+                        <select class="form-control" id="state" required>
+                            <option>Choose...</option>
+                            <option>Utah</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="country">
+                            Country
+                        </label>
+                        <select class="form-control" id="country" required>
+                            <option>Choose...</option>
+                            <option>United States</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="zip">Zip</label>
+                        <input type="text" class="form-control" id="zip" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr class="mb-4" />
+                    <div class="col-md-10 mb-3">
+                        <label for="amenities">Amenities</label>
+                        <textarea class="form-control" id="amenities"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="people">How many people needed?</label>
+                        <select class="form-control" id="people">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="people">How many rooms available?</label>
+                        <select class="form-control" id="rooms">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="gender">Man/Woman?</label>
+                        <select class="form-control" id="gender">
+                            <option>Man</option>
+                            <option>Woman</option>
+                            <option>Both</option>
+                        </select>
+                    </div>
+                </div>
+                <hr class="mb-4" />
+                <h4 class="mb-3">Floor Plan</h4>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="bedrooms">Bedrooms</label>
+                        <select class="form-control" id="bedrooms">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="people">Bathrooms</label>
+                        <select class="form-control" id="bathrooms">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="people">Kictchen</label>
+                        <select class="form-control" id="kitchen">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <hr class="mb-4" />
+                    <div class="col-md-6 col-md-offset-3 mb-3">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+                    </div>
+                </div>
+
+
+
+
+            </form>
+        </div>
+
+    </div>
+</div>
