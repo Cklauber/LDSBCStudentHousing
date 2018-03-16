@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StudentHousing.Data;
 using StudentHousing.Services;
 
 namespace StudentHousing
@@ -23,7 +25,10 @@ namespace StudentHousing
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IDataService, ListingInAppData>();
+            //services.AddSingleton<IDataService, ListingInAppData>();
+            services.AddDbContext<ListingDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("StudentHousing")));
+            services.AddScoped<IDataService, ListingDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

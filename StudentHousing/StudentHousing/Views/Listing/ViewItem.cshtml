@@ -9,5 +9,13 @@
     <h1>Name: @Model.Name</h1>
     <h2>Description: @Model.Description</h2>
     <h3>ID: @Model.Id</h3>
+    <br />
+
+    @{
+        var base64 = Convert.ToBase64String(Model.Image);
+        var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+    <img src="@imgsrc" style="max-height:100px;max-width:100px" />
+    }
+
     <a asp-action="Index">Back to list</a>
 </div>
