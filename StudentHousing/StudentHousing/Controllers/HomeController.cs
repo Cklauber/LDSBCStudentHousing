@@ -21,6 +21,20 @@ namespace StudentHousing.Controllers
 
             return View();
         }
+        [HttpGet]
+        public IActionResult Listing()
+        {
+            ViewData["Message"] = "Your application description page.";
+
+            return View();
+        }
+        //[HttpPost]
+        //public IActionResult Listing()
+        //{
+        //    ViewData["Message"] = "Your application description page.";
+
+        //    return View();
+        //}
 
         public IActionResult Contact()
         {
