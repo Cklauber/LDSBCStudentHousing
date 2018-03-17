@@ -22,7 +22,8 @@ namespace StudentHousing.Models
         public string Name { get; set; }
         [Required]
         public string Description { get; set; }
-        public byte[] Image { get; set; }
+        public List<Images> Images { get; set; }
+        //public byte[] Image { get; set; }
         //public string Address1 { get; set; }
         //public string Address2 { get; set; }
         //public string Address3 { get; set; }
@@ -71,11 +72,9 @@ namespace StudentHousing.Models
 
     }
 
-    //public partial class Images
-    //{
-    //    public Images()
-    //    {
-    //        this.ListingModel = new HashSet<ListingModel>();
-    //    }
-    //}
+    public class Images
+    {
+        public int Id { get; set; }
+        public byte[] Image { get; set; }
+    }
 }

@@ -1,4 +1,4 @@
-﻿@model StudentHousing.Models.ListingModel
+﻿@model StudentHousing.CompositeModel.ListingEditModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -7,19 +7,19 @@
 
 <form method="post" enctype="multipart/form-data">
     <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
+        <label asp-for="Listing.Name"></label>
+        <input asp-for="Listing.Name" />
+        <span asp-validation-for="Listing.Name"></span>
     </div>
     <div>
-        <label asp-for="Description"></label>
-        <input asp-for="Description" />
-        <span asp-validation-for="Description"></span>
+        <label asp-for="Listing.Description"></label>
+        <input asp-for="Listing.Description" />
+        <span asp-validation-for="Listing.Description"></span>
     </div>
     <div>
-        <label asp-for="Image"></label>
-        <input type="file" id="file" asp-for="Image" />
-        <span asp-validation-for="Image"></span>
+        <label asp-for="Images"></label>
+        <input type="file" id="file" asp-for="Images" multiple/>
+        <span asp-validation-for="Images"></span>
     </div>
 
 

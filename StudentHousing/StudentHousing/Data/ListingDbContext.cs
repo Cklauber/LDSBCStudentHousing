@@ -14,5 +14,6 @@ namespace StudentHousing.Data
 
         }
         public DbSet<ListingModel> Items { get; set; }
+        public DbSet<Images> Images { get; set; }
     }
 }

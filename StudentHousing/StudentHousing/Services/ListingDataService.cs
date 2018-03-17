@@ -16,6 +16,10 @@ namespace StudentHousing.Services
         }
         public ListingModel Add(ListingModel newItem)
         {
+            foreach(Images myImage in newItem.Images)
+            {
+                _context.Add(myImage);
+            }
             _context.Add(newItem);
             _context.SaveChanges();
             return newItem;
