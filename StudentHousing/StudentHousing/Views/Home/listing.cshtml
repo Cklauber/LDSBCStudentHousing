@@ -25,13 +25,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-8 mb-3">
                         <label for="listDescription">Property Description</label>
                         <input type="text" class="form-control" id="listDescription" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="contactName">Contact Name</label>
                         <input type="text" class="form-control" id="firstName" required />
                     </div>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="phone">Contact Phone#</label>
                         <input type="text" class="form-control" id="phone" />
                     </div>
@@ -73,6 +73,14 @@
                     <div class="col-md-3 mb-3">
                         <label for="d_payment">Down Payment</label>
                         <input type="text" class="form-control" id="d_payment" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="period">Contract Period</label>
+                        <select class="form-control" id="period">
+                            <option>Monthly</option>
+                            <option>Semester</option>
+                            <option>Yearly</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -119,45 +127,6 @@
                         <input type="text" class="form-control" id="zip" />
                     </div>
                 </div>
-
-                <div class="row">
-                    <hr class="mb-4" />
-                    <div class="col-md-10 mb-3">
-                        <label for="amenities">Amenities</label>
-                        <textarea class="form-control" id="amenities"></textarea>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="people">How many people needed?</label>
-                        <select class="form-control" id="people">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="people">How many rooms available?</label>
-                        <select class="form-control" id="rooms">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="gender">Man/Woman?</label>
-                        <select class="form-control" id="gender">
-                            <option>Man</option>
-                            <option>Woman</option>
-                            <option>Both</option>
-                        </select>
-                    </div>
-                </div>
                 <hr class="mb-4" />
                 <h4 class="mb-3">Floor Plan</h4>
                 <div class="row">
@@ -189,7 +158,84 @@
                             <option>3</option>
                         </select>
                     </div>
+                </div>
+                <div class="row">
+                    <hr class="mb-4" />
+                    <div class="col-md-10 mb-3">
+                        <label for="amenities">Amenities</label>
+                        <textarea class="form-control" id="amenities"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="pet">Pet Friendly?</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="pet" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="pet" checked="checked" />No
+                        </label>
+                    </div>
+                    <div class="col-md-9 mb-3">
+                        <label for="parking">Available Parking Lots</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="parking" checked="checked" />0
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="parking" />1
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="parking" />2
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="parking" />3
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="parking" />4+
+                        </label>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="people">How many people needed?</label>
+                        <select class="form-control" id="people">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="people">How many rooms available?</label>
+                        <select class="form-control" id="rooms">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="gender">Man/Woman</label>
+                        <select class="form-control" id="gender">
+                            <option>Man</option>
+                            <option>Woman</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr class="mb-4" />
+
+                </div>
+
+                <label for="upload">Upload Image</label> 
+                <div>
+                    <label class="custom-file">
+                        <input type="file" id="file" class="custom-file-input">
+                        <span class="custom-file-control"></span>
+                    </label>
                 </div>
 
                 <div class="row">
@@ -198,9 +244,6 @@
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
                     </div>
                 </div>
-
-
-
 
             </form>
         </div>
