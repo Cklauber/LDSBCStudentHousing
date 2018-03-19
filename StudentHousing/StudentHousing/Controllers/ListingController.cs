@@ -34,63 +34,13 @@ namespace StudentHousing.Controllers
         {
             return View();
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Create(ListingModel _newListing, List<IFormFile> Image)
-        //{
-        //    //if (ModelState.IsValid)
-        //    //{
-        //    //    var newListing = new ListingModel();
-        //    //    newListing.Name = _newListing.Name;
-        //    //    newListing.Description = _newListing.Description;
-        //    //    newListing.Image = _newListing.Image;
-        //    //    _model.Add(newListing);
-        //    //    return RedirectToAction(nameof(ViewItem), new { id = newListing.Id });
-        //    //}
-        //    if (ModelState.IsValid)
-        //    {
-        //        var newListing = new ListingModel();
-        //        newListing.Name = _newListing.Name;
-        //        newListing.Description = _newListing.Description;
-        //        newListing.Image = _newListing.Image;
-        //        foreach (var item in Image)
-        //        {
-        //            if (item.Length > 0)
-        //            {
-        //                using (var stream = new MemoryStream())
-        //                {
-        //                    await item.CopyToAsync(stream);
-        //                    newListing.Image = stream.ToArray();
-        //                }
-        //            }
-        //        }
-
-
-
-        //        _model.Add(newListing);
-        //        return RedirectToAction(nameof(ViewItem), new { id = newListing.Id });
-        //    }
-
-
-        //    return View();
-        //}
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ListingEditModel _newListing, List<IFormFile> Images)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    var newListing = new ListingModel();
-            //    newListing.Name = _newListing.Name;
-            //    newListing.Description = _newListing.Description;
-            //    newListing.Image = _newListing.Image;
-            //    _model.Add(newListing);
-            //    return RedirectToAction(nameof(ViewItem), new { id = newListing.Id });
-            //}
             if (ModelState.IsValid)
             {
                 var newListing = new ListingModel();
-                newListing.Name = _newListing.Listing.Name;
-                newListing.Description = _newListing.Listing.Description;
+                newListing = _newListing.Listing;
                 newListing.Images = new List<Images>();
                 foreach (var item in Images)
                 {
@@ -113,6 +63,28 @@ namespace StudentHousing.Controllers
 
             return View();
         }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ListingModel Listing = _model.Get(id);
+            ListingEditModel myModel = new ListingEditModel();
+            myModel.Listing = Listing;
+            foreach(Images img in Listing.Images)
+            {
+                myModel.Images.Add(img.Image);
+            }
+            return View(myModel);
+        }
+        //[HttpPost, ValidateAntiForgeryToken]
+        //public IActionResult Edit(ListingEditModel _listing, List<IFormFile> Images)
+        //{
+        //    ListingModel Listing = _model.Get(_listing.Listing.Id);
+        //    Listing = _listing.Listing;
+
+
+
+        //}
+
 
     }
 }

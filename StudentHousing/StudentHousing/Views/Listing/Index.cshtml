@@ -10,14 +10,13 @@
     <table>
         @foreach (var ListingItem in Model)
         {
-            <tr>
-                <td>ID: @ListingItem.Id</td>
-                <br />
-                <td>Name: @ListingItem.Name</td>
-                <br />
-                <td>Description: @ListingItem.Description</td>
-                <td><a asp-action="ViewItem" asp-route-id="@ListingItem.Id">Details</a></td>
-            </tr>
+        <tr>
+            <td>ID: @ListingItem.Id</td>
+            <td>Name: @ListingItem.Name</td>
+            <td>Description: @ListingItem.Description</td>
+            <td><a asp-action="ViewItem" asp-route-id="@ListingItem.Id">Details</a></td>
+            <td><a asp-action="Edit" asp-route-id="@ListingItem.Id">Edit</a></td>
+        </tr>
         }
     </table>
 

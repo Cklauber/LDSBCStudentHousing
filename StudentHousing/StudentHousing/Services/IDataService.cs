@@ -10,6 +10,7 @@ namespace StudentHousing.Services
     {
         IEnumerable<ListingModel> GetAll();
         ListingModel Get(int id);
-        ListingModel Add(ListingModel newItem);
+        ListingModel Add(ListingModel newListing);
+        ListingModel Update(ListingModel listing);
     }
 }
