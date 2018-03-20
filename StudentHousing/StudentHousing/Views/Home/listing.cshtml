@@ -19,6 +19,28 @@
             <h3 class="mb-3">Comple This Form</h3>
             <form class="needs-validation was-validated" method="POST">
                 <div class="row">
+                    <hr class="mb-4" />
+                    <h4 class="mb-3">Contact Information</h4>
+                    <div class="col-md-4 mb-3">
+                        <label for="contactName">Contact Name</label>
+                        <input type="text" class="form-control" id="firstName" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="email">Contact Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="phone">Contact Phone#</label>
+                        <input type="text" class="form-control" id="phone" />
+                    </div>
+                </div>
+                <div class="row">
+                    <hr class="mb-4" />
+                    <h4 class="mb-3">House General and Location</h4>
                     <div class="col-md-4 mb-3">
                         <label for="listName">Property Name</label>
                         <input type="text" class="form-control" id="listName" />
@@ -30,58 +52,13 @@
                         <input type="text" class="form-control" id="listDescription" />
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label for="contactName">Contact Name</label>
-                        <input type="text" class="form-control" id="firstName" required />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label for="phone">Contact Phone#</label>
-                        <input type="text" class="form-control" id="phone" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="rent">Rent</label>
-                        <input type="text" class="form-control" id="rent" />
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="utility">Utility</label>
-                        <input type="text" class="form-control" id="utility" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-7 mb-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="UtilityOption" />Utility Included with Rent
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="UtilityOption" checked="checked" />Utility NOT Included with Rent
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <hr class="mb-4" />
-                    <div class="col-md-3 mb-3">
-                        <label for="d_payment">Down Payment</label>
-                        <input type="text" class="form-control" id="d_payment" />
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="period">Contract Period</label>
-                        <select class="form-control" id="period">
-                            <option>Monthly</option>
-                            <option>Semester</option>
-                            <option>Yearly</option>
-                        </select>
-                    </div>
+
+                <label for="upload">Upload Image</label>
+                <div>
+                    <label class="custom-file">
+                        <input type="file" id="file" class="custom-file-input">
+                        <span class="custom-file-control"></span>
+                    </label>
                 </div>
                 <div class="row">
                     <div class="col-md-7 mb-3">
@@ -127,8 +104,15 @@
                         <input type="text" class="form-control" id="zip" />
                     </div>
                 </div>
+
                 <hr class="mb-4" />
-                <h4 class="mb-3">Floor Plan</h4>
+                <div class="row">
+                    <h4 class="mb-3">Floor Plan</h4>
+                    <div class="col-md-3 mb-3">
+                        <label for="size">Total Size <span class="text-muted">(Square Feet)</span></label>
+                            <input type="text" class="form-control" id="rent" />
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-3 mb-3">
                         <label for="bedrooms">Bedrooms</label>
@@ -161,6 +145,44 @@
                 </div>
                 <div class="row">
                     <hr class="mb-4" />
+                    <h4 class="mb-3">House Financial Information</h4>
+                    <div class="col-md-3 mb-3">
+                        <label for="rent">Rent</label>
+                        <input type="text" class="form-control" id="rent" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="utility">Total Utility</label>
+                        <input type="text" class="form-control" id="utility" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 mb-3">
+                        <label class="radio-inline">
+                            <input type="radio" name="UtilityOption" />Utility Included with Rent
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="UtilityOption" checked="checked" />Utility NOT Included with Rent
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="d_payment">Down Payment</label>
+                        <input type="text" class="form-control" id="d_payment" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="period">Contract Period</label>
+                        <select class="form-control" id="period">
+                            <option>Monthly</option>
+                            <option>Semester</option>
+                            <option>Yearly</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr class="mb-4" />
+                    <h4 class="mb-3">Extra Information</h4>
                     <div class="col-md-10 mb-3">
                         <label for="amenities">Amenities</label>
                         <textarea class="form-control" id="amenities"></textarea>
@@ -230,13 +252,7 @@
 
                 </div>
 
-                <label for="upload">Upload Image</label> 
-                <div>
-                    <label class="custom-file">
-                        <input type="file" id="file" class="custom-file-input">
-                        <span class="custom-file-control"></span>
-                    </label>
-                </div>
+
 
                 <div class="row">
                     <hr class="mb-4" />
