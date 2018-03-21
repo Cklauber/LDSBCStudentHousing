@@ -24,25 +24,31 @@ namespace StudentHousing.Models
         public string Description { get; set; }
         public List<Images> Images { get; set; }
         //public byte[] Image { get; set; }
-        //public string Address1 { get; set; }
-        //public string Address2 { get; set; }
-        //public string Address3 { get; set; }
-        //public string State { get; set; }
-        //public string City { get; set; }
-        //public int Zip { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
+        public int Zip { get; set; }
+
+        public string ContactName { get; set; }
+        public string Email { get; set; }
+        public int PhoneNumber { get; set; }
+    
 
         ////House Floorplan
-        //public decimal Bedroom { get; set; }
-        //public decimal Bathroom { get; set; }
-        //public int Kitchen { get; set; }
-        //public decimal SqrFeet { get; set; }
+        public decimal Bedroom { get; set; }
+        public decimal Bathroom { get; set; }
+        public int Kitchen { get; set; }
+        public decimal SqrFeet { get; set; }
+        public string Amendities { get; set; }
 
         ////House Financial Information
-        //public decimal Rent { get; set; }
-        //public bool RentIncludeUtil { get; set; }
-        //public decimal Utilities { get; set; }
-        //public decimal DownPayment { get; set; }
-        //public string Amendities { get; set; }
+        public decimal Rent { get; set; }
+        public bool RentIncludeUtil { get; set; }
+        public decimal Utilities { get; set; }
+        public decimal DownPayment { get; set; }
+
 
         ////TODO ENUM for contractPeriod
 

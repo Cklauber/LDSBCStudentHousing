@@ -3,16 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - StudentHousing</title>
+    <title>@ViewData["Title"] - TheBCBay</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/sticky-footer.css" />
+        <link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/scss/_tables.scss" />
+        <link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/scss/utilities/_spacing.scss" />
+
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://getbootstrap.com/scss/mixins/_forms.scss" />
-        <link rel="stylesheet" href="https://getbootstrap.com/scss/_forms.scss" />
-
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
@@ -29,24 +30,39 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">StudentHousing</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Student Housing</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="">About</a></li>
+                    <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="">Contact</a></li>
                 </ul>
+                @*if (username == false){*@
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a asp-area="" asp-controller="" asp-action="LogIn">Log In</a></li>
+                    <li class="nav-item"><a asp-area="" asp-controller="" asp-action="Register">Register</a></li>
+                </ul>
+                @*}else
+                    {
+                        <ul>
+                            <li> model.Username</li>
+                        </ul>
+                    }*@
+
             </div>
         </div>
     </nav>
-    <div class="container body-content bg-light">
+    <div class="container body-content" style="max-width:900px">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2018 - StudentHousing</p>
-        </footer>
     </div>
+
+    <footer class="footer " style=" border:solid black 2px">
+        <div class="container">
+            <p>This is where the foooter information is supposed to be</p>
+        </div>
+    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

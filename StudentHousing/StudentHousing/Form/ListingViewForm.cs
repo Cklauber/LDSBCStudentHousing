@@ -8,12 +8,12 @@ namespace StudentHousing.Form
 {
     public class ListingViewForm : ListingModel
     {
-        public List<Images> GetImages()
+        /*public List<Images> GetImages()
         {
             if(Images.)
 
 
             return this.Images;
-        }
+        }*/
     }
 }

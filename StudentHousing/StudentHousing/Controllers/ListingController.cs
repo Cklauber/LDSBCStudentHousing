@@ -37,7 +37,8 @@ namespace StudentHousing.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ListingEditModel _newListing, List<IFormFile> Images)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            if (true)
             {
                 var newListing = new ListingModel();
                 newListing = _newListing.Listing;
@@ -80,9 +81,6 @@ namespace StudentHousing.Controllers
         //{
         //    ListingModel Listing = _model.Get(_listing.Listing.Id);
         //    Listing = _listing.Listing;
-
-
-
         //}
 
 

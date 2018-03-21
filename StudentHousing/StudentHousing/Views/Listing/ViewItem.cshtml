@@ -10,8 +10,19 @@
     <h2>Description: @Model.Description</h2>
     <h3>ID: @Model.Id</h3>
     <br />
+    <h3>Adress: @Model.Address1  @Model.Address2 , @Model.City , @Model.State  @Model.Zip</h3>
+    <h3>Bedroom(s) : @Model.Bedroom </h3>
+    <h3>Bathroom(s): @Model.Bathroom</h3>
+    <h3>Kitchen(s): @Model.Kitchen</h3>
+    <h3>SqrFeet: @Model.SqrFeet</h3>
+    <h3>Amendities: @Model.Amendities</h3>
+    <br />
+    <h3>Rent: @Model.Rent</h3>
+    <h3>Utilities: @Model.Utilities</h3>
+    <h3>Utilities are included in rent: @if (@Model.RentIncludeUtil) { <p>Yes</p> }else { <p>No</p> }</h3>
+    <h3>DownPayment: @Model.DownPayment</h3>
 
-
+    <br />
     @{
         var myModel = Model;
         foreach (Images img in Model.Images)
