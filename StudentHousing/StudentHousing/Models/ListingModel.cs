@@ -68,8 +68,21 @@ namespace StudentHousing.Models
         //public int PeopleSignedUp { get; set; }
         //public int RoomAvailable { get; set; }
         //public string MyProperty { get; set; }
-
-
+        public List<String> GetImagesToSrc()
+        {
+            List<String> Imgsources = new List<string>();
+            string imgsrc = "";
+            if (Images.Count > 0)
+            {
+                foreach (Images img in this.Images)
+                {
+                    imgsrc = Convert.ToBase64String(img.Image);
+                    imgsrc = string.Format("data:image;base64,{0}", imgsrc);
+                    Imgsources.Add(imgsrc);
+                }
+            }
+            return Imgsources;
+        }
     }
 
     public class Images
