@@ -22,23 +22,15 @@
     <h3>Utilities are included in rent: @if (@Model.RentIncludeUtil) { <p>Yes</p> }else { <p>No</p> }</h3>
     <h3>DownPayment: @Model.DownPayment</h3>
 
-    <br />
     @{
         var myModel = Model;
         foreach (Images img in Model.Images)
         {
-            var base64 = Convert.ToBase64String(img.Image);
-            var imgsrc = string.Format("data:image;base64,{0}", base64);
             <img src="@imgsrc" style="max-height:500px;max-width:500px" />
         }
-
     }
 
-    @*@{
-            var base64 = Convert.ToBase64String(Model.Image);
-            var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
-        <img src="@imgsrc" style="max-height:100px;max-width:100px" />
-        }*@
+
 
     <a asp-action="Index">Back to list</a>
 </div>
