@@ -22,9 +22,7 @@
     <h3>Utilities are included in rent: @if (@Model.RentIncludeUtil) { <p>Yes</p> }else { <p>No</p> }</h3>
     <h3>DownPayment: @Model.DownPayment</h3>
 
-    @{
-        var myModel = Model;
-        foreach (Images img in Model.Images)
+    @{foreach (String imgsrc in Model.GetImagesToSrc())
         {
             <img src="@imgsrc" style="max-height:500px;max-width:500px" />
         }

@@ -12,5 +12,7 @@ namespace StudentHousing.Services
         ListingModel Get(int id);
         ListingModel Add(ListingModel newListing);
         ListingModel Update(ListingModel listing);
+        List<Images> GetImagesOnly(int id);
+        ListingModel GetListingOnly(int id);
     }
 }

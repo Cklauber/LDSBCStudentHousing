@@ -32,6 +32,12 @@ namespace StudentHousing.Services
             ListingModel myItem = _context.Items.Include(list => list.Images).FirstOrDefault(x => x.Id == id);
             return myItem;
         }
+        public ListingModel GetListingOnly(int id)
+        {
+            ListingModel myItem = _context.Items.FirstOrDefault(x => x.Id == id);
+            //ListingModel myItem = _context.Items.Include(list => list.Images).FirstOrDefault(x => x.Id == id);
+            return myItem;
+        }
 
         public IEnumerable<ListingModel> GetAll()
         {
@@ -40,9 +46,27 @@ namespace StudentHousing.Services
 
         public ListingModel Update(ListingModel listing)
         {
+            
             _context.Attach(listing).State = EntityState.Modified;
             _context.SaveChanges();
             return listing;
         }
+        public List<Images> GetImagesOnly(int id)
+        {
+            List<Images> Images = new List<Images>();
+            foreach(Images img in _context.Items.Include(list => list.Images).FirstOrDefault(x => x.Id == id).Images)
+            {
+                Images.Add(img);
+            }
+            return Images;
+        }
+
+        //public void AttachImages()
+        //{
+        //    this.
+        //}
+
+
+
     }
 }
