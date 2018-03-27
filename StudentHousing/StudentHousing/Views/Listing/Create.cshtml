@@ -8,7 +8,7 @@
 <form method="post" enctype="multipart/form-data">
     <div>
         <label asp-for="Name"></label>
-        <input asp-for="Name" />
+        <input class="form-control" asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
     <div>
@@ -17,9 +17,21 @@
         <span asp-validation-for="Description"></span>
     </div>
     <div>
+        <label asp-for="Address1"></label>
+        <input asp-for="Address1" />
+        <span asp-validation-for="Address1"></span>
+    </div>
+    <div>
         <label asp-for="Images"></label>
-        <input type="file" id="file" asp-for="Images" multiple/>
+        <input type="file" id="file" asp-for="Images" multiple />
         <span asp-validation-for="Images"></span>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="PhoneNumber">Contact Phone#</label>
+            <input class="form-control" asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
     </div>
 
 
