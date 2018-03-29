@@ -1,0 +1,14 @@
+﻿
+
+/*Spacing wasnt working in the boostrap*/
+
+.smallMargin {
+    margin: .5em;
+}
+
+#customHR {
+    margin: .5em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+    border-top: 1px solid #bfbfbf;
+}

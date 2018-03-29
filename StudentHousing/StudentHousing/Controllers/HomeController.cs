@@ -28,6 +28,20 @@ namespace StudentHousing.Controllers
 
             return View();
         }
+
+        public IActionResult Register()
+        {
+            ViewData["Message"] = "Your application description page.";
+
+            return View();
+        }
+
+        public IActionResult SignIn()
+        {
+            ViewData["Message"] = "Your application description page.";
+
+            return View();
+        }
         //[HttpPost]
         //public IActionResult Listing()
         //{

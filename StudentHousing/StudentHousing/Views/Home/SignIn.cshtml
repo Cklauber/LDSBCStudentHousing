@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "SignIn";
+}
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12 order-md-1">
+            <div class="col-md-4">
+            </div>
+            <div class="py-5 text-center col-md-5">
+                <div class="row smallMargin">
+                    <h4>
+                        Log in to your account
+                    </h4>
+                </div>
+                <div class="row smallMargin">
+                    <button style="font-weight: bold" type="button" class="btn btn-primary col-md-6 ">Facebook</button>
+
+                    <button style="font-weight: bold" type="button" class="btn btn-danger col-md-6 ">Google</button>
+                </div>
+                <hr class="row " id="customHR"/>
+                <div class="row text-left ">
+                    <form class="needs-validation was-validated" method="POST">
+                        <div class="row smallMargin">
+                            <div class="col-md-12 mb-3">
+                                <label for="email">Email Address</label>
+                                <input type="email" class="form-control" id="email" />
+                            </div>
+                        </div>
+                        <div class="row smallMargin">
+                            <div class="col-md-12 mb-3">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" />
+                            </div>
+                        </div>
+                        <div class="row smallMargin">
+                            <div class="col-md-5 ">
+                                <input type="checkbox" id="keepLogged" disabled>Keep me logged in<br>
+                            </div>
+                            <div class="col-md-5 pull-right  ">
+                                <a href="javascript:void">Forgot your password?</a>
+                            </div>
+                        </div>
+                        <div class="row smallMargin">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-info btn-block"><span style="font-weight: bold; font-size: 150%">Sign In</span></button>
+                            </div>
+                        </div>
+                        <div class="row smallMargin">
+                            <div class="col-md-12">
+                                <a href="/home/Register">Don't have an account? Create one now!</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+
+        </div>   
+</div>
