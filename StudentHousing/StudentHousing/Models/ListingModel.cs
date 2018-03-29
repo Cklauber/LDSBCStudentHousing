@@ -11,11 +11,9 @@ namespace StudentHousing.Models
         public int Id { get; set; }
 
         ////Contact Information
-        //public string ContactName { get; set; }
-
-        //public string ContactEmail { get; set; }
-
-        //public string PhoneNumber { get; set; }
+        public string ContactName { get; set; }
+        public string Email { get; set; }
+        public int PhoneNumber { get; set; }
 
         //House General and Location
         [Required]
@@ -31,11 +29,6 @@ namespace StudentHousing.Models
         public string City { get; set; }
         public int Zip { get; set; }
 
-        public string ContactName { get; set; }
-        public string Email { get; set; }
-        public int PhoneNumber { get; set; }
-    
-
         ////House Floorplan
         public decimal Bedroom { get; set; }
         public decimal Bathroom { get; set; }
@@ -49,31 +42,16 @@ namespace StudentHousing.Models
         public decimal Utilities { get; set; }
         public decimal DownPayment { get; set; }
 
-
         ////TODO ENUM for contractPeriod
 
-
-
-
         ////Extra Information
-
-        //public bool PetFriendly { get; set; }
-
-
-
-        //public string Utilities { get; set; }
-        //public string Amendities { get; set; }
+        public bool PetFriendly { get; set; }
+        public int PeopleSignedUp { get; set; }
+        public int RoomAvailable { get; set; }
+        public string MyProperty { get; set; }
 
 
 
-
-
-
-
-
-        //public int PeopleSignedUp { get; set; }
-        //public int RoomAvailable { get; set; }
-        //public string MyProperty { get; set; }
         public List<String> GetImagesToSrc()
         {
             List<String> Imgsources = new List<string>();
