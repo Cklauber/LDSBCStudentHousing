@@ -9,18 +9,44 @@
     <h1>Name: @Model.Name</h1>
     <h2>Description: @Model.Description</h2>
     <h3>ID: @Model.Id</h3>
+
     <br />
+
+    <h3>Rent: @Model.Rent</h3>
+    <h3>Utilities: @Model.Utilities</h3>
+    <h3>
+        Utilities are included in rent: @if (@Model.RentIncludeUtil)
+        {<p>Yes</p> }
+        else
+        { <p>No</p>}
+    </h3>
+    <h3>DownPayment: @Model.DownPayment</h3>
+
+    <br />
+
     <h3>Adress: @Model.Address1  @Model.Address2 , @Model.City , @Model.State  @Model.Zip</h3>
+
+    <br />
+    <h2> Floor Plan</h2>
+
     <h3>Bedroom(s) : @Model.Bedroom </h3>
     <h3>Bathroom(s): @Model.Bathroom</h3>
     <h3>Kitchen(s): @Model.Kitchen</h3>
     <h3>SqrFeet: @Model.SqrFeet</h3>
     <h3>Amendities: @Model.Amendities</h3>
     <br />
-    <h3>Rent: @Model.Rent</h3>
-    <h3>Utilities: @Model.Utilities</h3>
-    <h3>Utilities are included in rent: @if (@Model.RentIncludeUtil) { <p>Yes</p> }else { <p>No</p> }</h3>
-    <h3>DownPayment: @Model.DownPayment</h3>
+
+    <h2> Extra Information</h2>
+    <h3>
+        Pet Friendly : @if (@Model.PetFriendly)
+                             {<p>Yes</p> }
+                        else
+                            { <p>No</p>}
+    </h3>
+    <h3>People needed: @Model.PeopleSignedUp</h3>
+    <h3>Rooms Available: @Model.RoomAvailable</h3>
+   
+
 
     @{foreach (String imgsrc in Model.GetImagesToSrc())
         {
@@ -30,5 +56,5 @@
 
 
 
-    <a asp-action="Index">Back to list</a>
+    <a class="btn btn-danger btn-lg" asp-action="Index">Back to list</a>
 </div>
