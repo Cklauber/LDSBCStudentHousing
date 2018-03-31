@@ -9,7 +9,7 @@ namespace StudentHousing.Data
 {
     public class ListingDbContext : DbContext
     {
-        public ListingDbContext(DbContextOptions options) : base(options)
+        public ListingDbContext(DbContextOptions<ListingDbContext> options) : base(options)
         {
 
         }
