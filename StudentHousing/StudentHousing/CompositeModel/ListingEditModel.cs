@@ -18,6 +18,39 @@ namespace StudentHousing.CompositeModel
         public string Description { get; set; }
         public List<Images> Images { get; set; }
 
+        ////Contact Information
+        public string ContactName { get; set; }
+        public string Email { get; set; }
+        public int PhoneNumber { get; set; }
+
+        //Address
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
+        public int Zip { get; set; }
+
+        ////House Floorplan
+        public decimal Bedroom { get; set; }
+        public decimal Bathroom { get; set; }
+        public int Kitchen { get; set; }
+        public decimal SqrFeet { get; set; }
+        public string Amendities { get; set; }
+
+        ////House Financial Information
+        public decimal Rent { get; set; }
+        public bool RentIncludeUtil { get; set; }
+        public decimal Utilities { get; set; }
+        public decimal DownPayment { get; set; }
+
+        ////TODO ENUM for contractPeriod
+
+        ////Extra Information
+        public bool PetFriendly { get; set; }
+        public int PeopleSignedUp { get; set; }
+        public int RoomAvailable { get; set; }
+        public string MyProperty { get; set; }
 
         public List<byte[]> BitImages { get; set; }
         public List<String> GetImages()
