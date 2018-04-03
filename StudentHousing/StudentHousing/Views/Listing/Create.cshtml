@@ -14,12 +14,43 @@
 <form method="post" enctype="multipart/form-data">
     <div class="container">
 
+
         <div class="row">
+            <hr class="mb-4" />
+            <h4 class="mb-3">Contact Information</h4>
+            <div class="col-md-4 mb-3">
+                <label>Contact Name</label>
+                <input type="text" class="form-control" asp-for="Listing.ContactName" required />
+                <span asp-validation-for="Listing.ContactName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Email</label>
+                <input type="email" class="form-control" asp-for="Listing.Email" placeholder="you@example.com" />
+                <span asp-validation-for="Listing.Email"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>Contact Phone#</label>
+                <input type="text" class="form-control" asp-for="Listing.PhoneNumber" />
+                <span asp-validation-for="Listing.PhoneNumber"></span>
+            </div>
+        </div>
+        <div class="row">
+            <hr class="mb-4" />
+            <h4 class="mb-3">House General and Location</h4>
             <div class="col-md-4 mb-3">
                 <label>Property Name</label>
                 <input type="text" class="form-control" asp-for="Listing.Name" required />
-                <span asp-validation-for="Listing.Name"></span>
+                <span asp-validation-for="Listing.Name" class="text-danger"></span>
             </div>
+        </div>
+        <div>
+            <label asp-for="Images"></label>
+            <input type="file" id="file" asp-for="Images" multiple />
+            <span asp-validation-for="Images"></span>
         </div>
         <div class="row">
             <div class="col-md-8 mb-3">
@@ -28,48 +59,152 @@
                 <span asp-validation-for="Listing.Description"></span>
             </div>
         </div>
+
         <div class="row">
+            <div class="col-md-10 mb-3">
+                <label>Address Line#1</label>
+                <input type="text" class="form-control" asp-for="Listing.Address1" />
+                <span asp-validation-for="Listing.Address1"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 mb-3">
+                <label>Address Line#2</label>
+                <input type="text" class="form-control" asp-for="Listing.Address2" />
+                <span asp-validation-for="Listing.Address2"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label>City</label>
+                <select class="form-control" asp-for="Listing.City" required>
+                    <option>Choose...</option>
+                    <option>SLC</option>
+                </select>
+                <span asp-validation-for="Listing.City"></span>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label>State</label>
+                <select class="form-control" asp-for="Listing.State" required>
+                    <option>Choose...</option>
+                    <option>Utah</option>
+                </select>
+                <span asp-validation-for="Listing.State"></span>
+            </div>
+
             <div class="col-md-4 mb-3">
-                <label>Contact Name</label>
-                <input type="text" class="form-control" asp-for="Listing.ContactName" required />
-                <span asp-validation-for="Listing.Description"></span>
+                <label>Zip</label>
+                <input type="text" class="form-control" asp-for="Listing.Zip" required />
+                <span asp-validation-for="Listing.Zip"></span>
             </div>
+
         </div>
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <label>Email</label>
-                <input type="email" class="form-control" asp-for="Listing.Email" placeholder="you@example.com" />
-                <span asp-validation-for="Listing.Description"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <label>Contact Phone#</label>
-                <input type="text" class="form-control" asp-for="Listing.PhoneNumber" />
-                <span asp-validation-for="Listing.Description"></span>
-            </div>
-        </div>
-        <div class="row">
+            <hr class="mb-4" />
+            <h4 class="mb-3">House Financial Information</h4>
             <div class="col-md-3 mb-3">
                 <label>Rent</label>
                 <input type="number" class="form-control" asp-for="Listing.Rent" />
-                <span asp-validation-for="Listing.Description"></span>
+                <span asp-validation-for="Listing.Rent"></span>
             </div>
+            <div class="col-md-3 mb-3">
+                <label>DownPayment</label>
+                <input type="number" class="form-control" asp-for="Listing.DownPayment" />
+                <span asp-validation-for="Listing.DownPayment"></span>
+            </div>
+
+
             <div class="col-md-3 mb-3">
                 <label>Utility</label>
                 <input type="number" class="form-control" asp-for="Listing.Utilities" />
-                <span asp-validation-for="Listing.Description"></span>
+                <span asp-validation-for="Listing.Utilities"></span>
             </div>
         </div>
 
-        <div>
-            <label asp-for="Images"></label>
-            <input type="file" id="file" asp-for="Images" multiple />
-            <span asp-validation-for="Images"></span>
+        <div class="row">
+            <div class="col-md-7 mb-3">
+                <label>
+                    <input type="radio" asp-for="Listing.DownPayment" value="true" />Utility Included with Rent
+                </label>
+
+                <label>
+                    <input type="radio" asp-for="Listing.DownPayment" checked="checked" value="false" />Utility NOT Included with Rent
+                </label>
+                <span asp-validation-for="Listing.DownPayment"></span>
+            </div>
         </div>
 
 
-        <button class="btn btn-primary btn-lg btn-block" type="submit" name="save" value="Save" />
+        <div class="row">
+            <hr class="mb-4" />
+            <h4 class="mb-3">Floor Plan</h4>
+            <div class="col-md-3 mb-3">
+                <label>Bedroom</label>
+                <input type="number" class="form-control" asp-for="Listing.Bedroom" />
+                <span asp-validation-for="Listing.Bedroom"></span>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label>Bathroom</label>
+                <input type="number" class="form-control" asp-for="Listing.Bathroom" />
+                <span asp-validation-for="Listing.Bathroom"></span>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label>Kitchen</label>
+                <input type="number" class="form-control" asp-for="Listing.Kitchen" />
+                <span asp-validation-for="Listing.Kitchen"></span>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label>Square Feet</label>
+                <input type="number" class="form-control" asp-for="Listing.SqrFeet" />
+                <span asp-validation-for="Listing.SqrFeet"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label>Amendities</label>
+                <input type="text" class="form-control" asp-for="Listing.Amendities" />
+                <span asp-validation-for="Listing.Amendities"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <hr class="mb-4" />
+            <h4 class="mb-3">Extra Information</h4>
+            <div class="col-md-6 mb-3">
+                <label>
+                    <input type="radio" asp-for="Listing.PetFriendly" value="true" />Pets Not Allowed
+                </label>
+
+                <label>
+                    <input type="radio" asp-for="Listing.PetFriendly" checked="checked" value="false" />Pets Allowed
+                </label>
+                <span asp-validation-for="Listing.PetFriendly"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label>People Signed Up</label>
+                <input type="number" class="form-control" asp-for="Listing.PeopleSignedUp" />
+                <span asp-validation-for="Listing.PeopleSignedUp"></span>
+            </div>
+
+
+            <div class="col-md-3 mb-3">
+                <label>Rooms Available</label>
+                <input type="number" class="form-control" asp-for="Listing.RoomAvailable" />
+                <span asp-validation-for="Listing.RoomAvailable"></span>
+            </div>
+        </div>
+        <div class="row">
+            <hr class="mb-4" />
+            <div class="col-md-6 col-md-offset-3 mb-3">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="save" value="Save">Register</button>
+            </div>
+        </div>
     </div>
 </form>
 

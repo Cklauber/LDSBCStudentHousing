@@ -26,7 +26,7 @@ namespace StudentHousing.Models
         //public byte[] Image { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
-        public string Address3 { get; set; }
+      //  public string Address3 { get; set; }
         public string State { get; set; }
         public string City { get; set; }
         public int Zip { get; set; }
@@ -57,7 +57,7 @@ namespace StudentHousing.Models
 
         ////Extra Information
 
-        //public bool PetFriendly { get; set; }
+       public bool PetFriendly { get; set; }
 
 
 
@@ -71,8 +71,8 @@ namespace StudentHousing.Models
 
 
 
-        //public int PeopleSignedUp { get; set; }
-        //public int RoomAvailable { get; set; }
+        public int PeopleSignedUp { get; set; }
+        public int RoomAvailable { get; set; }
         //public string MyProperty { get; set; }
 
 
