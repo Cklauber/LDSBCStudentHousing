@@ -38,12 +38,14 @@ namespace StudentHousing
             //Identity Stuff
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<IdentityDbContext>(
+            services.AddDbContext<StudentHousingUserDBContext>(
                 opt => opt.UseSqlServer(Configuration.GetConnectionString("UserIdentity"),
                 sql => sql.MigrationsAssembly(migrationAssembly)));
 
-            services.AddIdentityCore<IdentityUser>(options => { });
-            services.AddScoped<IUserStore<IdentityUser>, UserOnlyStore<IdentityUser, IdentityDbContext>>();
+            services.AddIdentityCore<StudentHousingUser>(options => { });
+
+
+            services.AddScoped<IUserStore<StudentHousingUser>, UserOnlyStore<StudentHousingUser, StudentHousingUserDBContext>>();
 
             services.AddAuthentication("cookies")
                 .AddCookie("cookies", options => options.LoginPath = "/Account/Login");
