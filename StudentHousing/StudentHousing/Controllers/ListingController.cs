@@ -35,54 +35,94 @@ namespace StudentHousing.Controllers
             return View();
         }
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ListingEditModel _newListing, List<IFormFile> Images)
+        public async Task<IActionResult> Create(ListingModel _newListing, List<IFormFile> Images)
         {
-            //if (ModelState.IsValid)
-            if (true)
+            if (ModelState.IsValid)
             {
-                var newListing = new ListingModel();
-                newListing = _newListing.Listing;
-                newListing.Images = new List<Images>();
-                foreach (var item in Images)
-                {
-                    if (item.Length > 0)
-                    {
-                        using (var stream = new MemoryStream())
-                        {
-                            await item.CopyToAsync(stream);
-                            newListing.Images.Add(new Images { Image = stream.ToArray() });
-                        }
-                    }
-                }
-
-
-
+                var newListing = _newListing;
+                newListing.Images = await ToImageList(Images);
                 _model.Add(newListing);
                 return RedirectToAction(nameof(ViewItem), new { id = newListing.Id });
             }
-
-
             return View();
         }
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ListingModel Listing = _model.Get(id);
-            ListingEditModel myModel = new ListingEditModel();
-            myModel.Listing = Listing;
-            foreach(Images img in Listing.Images)
-            {
-                myModel.Images.Add(img.Image);
-            }
-            return View(myModel);
+            var _listing = _model.Get(id);
+            return View(_listing);
         }
-        //[HttpPost, ValidateAntiForgeryToken]
-        //public IActionResult Edit(ListingEditModel _listing, List<IFormFile> Images)
-        //{
-        //    ListingModel Listing = _model.Get(_listing.Listing.Id);
-        //    Listing = _listing.Listing;
-        //}
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(ListingEditModel _listing, List<IFormFile> Images)
+        {
+
+            if (ModelState.IsValid)
+            {
+                ListingModel Listing = _model.Get(_listing.Id);
+                Listing.Name = _listing.Name;
+                Listing.Description = _listing.Description;
+                Listing.ContactName = _listing.ContactName;
+                Listing.Email = _listing.Email;
+                Listing.PhoneNumber = _listing.PhoneNumber;
+                Listing.Rent = _listing.Rent;
+                Listing.RentIncludeUtil = _listing.RentIncludeUtil;
+                Listing.Utilities = _listing.Utilities;
+                Listing.DownPayment = _listing.DownPayment;
+                Listing.Address1 = _listing.Address1;
+                Listing.Address2 = _listing.Address2;
+                Listing.City = _listing.City;
+                Listing.State = _listing.State;
+                Listing.Zip = _listing.Zip;
+                Listing.Bedroom = _listing.Bedroom;
+                Listing.Bathroom = _listing.Bathroom;
+                Listing.Kitchen = _listing.Kitchen;
+                Listing.SqrFeet = _listing.SqrFeet;
+                Listing.Amendities = _listing.Amendities;
+                Listing.PetFriendly = _listing.PetFriendly;
+                Listing.PeopleSignedUp = _listing.PeopleSignedUp;
+                Listing.RoomAvailable = _listing.RoomAvailable;             
+                //TODO: Edit pictures.
+                //Probably the easiest way is going to be transforming the images, sending it
+                //    to the _listing and then comparing with the picture in the Listing.
+                //    According to the changes we can delete(OrderedParallelQuery make inactive),
+                //    add and maybe update.
 
 
+                //var updateListing = new ListingModel();
+                //updateListing = _listing.Listing;
+                //updateListing.Images = new List<Images>();
+                //foreach (var item in Images)
+                //{
+                //    if (item.Length > 0)
+                //    {
+                //        using (var stream = new MemoryStream())
+                //        {
+                //            await item.CopyToAsync(stream);
+                //            updateListing.Images.Add(new Images { Image = stream.ToArray() });
+                //        }
+                //    }
+                //}
+                _model.Update(Listing);
+                return RedirectToAction(nameof(ViewItem), new { id = Listing.Id });
+            }
+            return View();
+
+        }
+        private async Task<List<Images>> ToImageList(List<IFormFile> Images)
+        {
+            var ImageList = new List<Images>();
+            foreach (var item in Images)
+            {
+                if (item.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await item.CopyToAsync(stream);
+                        ImageList.Add(new Images { Image = stream.ToArray() });
+                    }
+                }
+            }
+            return ImageList;
+        }
     }
 }

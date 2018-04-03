@@ -7,19 +7,28 @@
 
 <div>
 
-    <table>
-        @foreach (var ListingItem in Model)
-        {
+    <table class="table-responsive">
+        <thead class="danger">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ListingItem in Model)
+    {
         <tr>
-            <td>ID: @ListingItem.Id</td>
-            <td>Name: @ListingItem.Name</td>
-            <td>Description: @ListingItem.Description</td>
-            <td><a asp-action="ViewItem" asp-route-id="@ListingItem.Id">Details</a></td>
-            <td><a asp-action="Edit" asp-route-id="@ListingItem.Id">Edit</a></td>
+            <td> @ListingItem.Id</td>
+            <td> @ListingItem.Name</td>
+            <td> @ListingItem.Description</td>
+            <td><a class="btn btn-default" asp-action="ViewItem" asp-route-id="@ListingItem.Id">Details</a></td>
+
+            <td><a class="btn btn-default" asp-action="Edit" asp-route-id="@ListingItem.Id">Edit</a></td>
         </tr>
-        }
+}
+        </tbody>
     </table>
 
-    <a asp-action="Create">New Listing</a>
-
+        <a class="btn btn-danger" asp-action="Create">New Listing</a>
 </div>

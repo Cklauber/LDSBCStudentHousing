@@ -11,9 +11,10 @@ using System;
 namespace StudentHousing.Migrations
 {
     [DbContext(typeof(ListingDbContext))]
-    partial class ListingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180320001406_DidIBreakIt")]
+    partial class DidIBreakIt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,53 +42,11 @@ namespace StudentHousing.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address1");
-
-                    b.Property<string>("Address2");
-
-                    b.Property<string>("Amendities");
-
-                    b.Property<decimal>("Bathroom");
-
-                    b.Property<decimal>("Bedroom");
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("ContactName");
-
                     b.Property<string>("Description")
                         .IsRequired();
 
-                    b.Property<decimal>("DownPayment");
-
-                    b.Property<string>("Email");
-
-                    b.Property<int>("Kitchen");
-
-                    b.Property<string>("MyProperty");
-
                     b.Property<string>("Name")
                         .IsRequired();
-
-                    b.Property<int>("PeopleSignedUp");
-
-                    b.Property<bool>("PetFriendly");
-
-                    b.Property<int>("PhoneNumber");
-
-                    b.Property<decimal>("Rent");
-
-                    b.Property<bool>("RentIncludeUtil");
-
-                    b.Property<int>("RoomAvailable");
-
-                    b.Property<decimal>("SqrFeet");
-
-                    b.Property<string>("State");
-
-                    b.Property<decimal>("Utilities");
-
-                    b.Property<int>("Zip");
 
                     b.HasKey("Id");
 

@@ -1,29 +1,243 @@
-﻿@model StudentHousing.CompositeModel.ListingEditModel
+﻿@model StudentHousing.Models.ListingModel
 @{
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>Edit Listing</h2>
 
 <form method="post" enctype="multipart/form-data">
+    Editim item ID: @Model.Id
     <div>
-        <label asp-for="Listing.Name"></label>
-        <input asp-for="Listing.Name" />
-        <span asp-validation-for="Listing.Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
     </div>
     <div>
-        <label asp-for="Listing.Description"></label>
-        <input asp-for="Listing.Description" />
-        <span asp-validation-for="Listing.Description"></span>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
     </div>
+
+
+    @*  Contact Information *@
+
+    <h2>Contact Information</h2>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="ContactName"></label>
+            <input type="text" class="form-control" asp-for="ContactName" />
+            <span asp-validation-for="ContactName"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Email">Email</label>
+            <input type="email" class="form-control" asp-for="Email" placeholder="you@example.com" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="PhoneNumber">Contact Phone#</label>
+            <input type="text" class="form-control" asp-for="PhoneNumber" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+
+    @*  Renting Payments *@
+
+    <h2>Payment Information</h2>
+
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label asp-for="Rent">Rent</label>
+            <input type="text" class="form-control" asp-for="Rent" />
+            <span asp-validation-for="Rent"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label asp-for="Utilities">Utility</label>
+            <input type="text" class="form-control" asp-for="Utilities" />
+            <span asp-validation-for="Utilities"></span>
+        </div>
+        <div class="col-md-7 mb-3">
+            <label class="radio-inline">
+                <input type="radio" asp-for="RentIncludeUtil" value="True" />Utility Included with Rent
+            </label>
+            <label class="radio-inline">
+                <input type="radio" asp-for="RentIncludeUtil" value="False" />Utility NOT Included with Rent
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <hr class="mb-4" />
+        <div class="col-md-3 mb-3">
+            <label asp-for="DownPayment">Down Payment</label>
+            <input type="text" class="form-control" asp-for="DownPayment" />
+            <span asp-validation-for="DownPayment"></span>
+        </div>
+    </div>
+
+
+    @*   Address   *@
+    <h2>Apartment Address</h2>
+
+    <div class="row">
+        <div class="col-md-7 mb-3">
+            <label asp-for="Address1">Address Line#1</label>
+            <input type="text" class="form-control" asp-for="Address1" placeholder="1234 Main St" />
+            <span asp-validation-for="Address1"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 mb-3">
+            <label asp-for="Address2">
+                Address Line#2
+                <span class="text-muted">(Optional)</span>
+            </label>
+            <input type="text" class="form-control" asp-for="Address2" placeholder="Apartment or suite" />
+            <span asp-validation-for="Address2"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 mb-3">
+            <label asp-for="City">City</label>
+            <select class="form-control" asp-for="City">
+                <option value="null">Choose...</option>
+                <option value="Salt Lake City">SLC</option>
+            </select>
+            <span asp-validation-for="City"></span>
+        </div>
+        <div class="col-md-2 mb-3">
+            <label asp-for="State">State</label>
+            <select class="form-control" asp-for="State" required>
+                <option value="null">Choose...</option>
+                <option value="Utah">Utah</option>
+            </select>
+            <span asp-validation-for="State"></span>
+        </div>
+        <div class="col-md-2 mb-3">
+            <label asp-for="Zip">Zip</label>
+            <input type="text" class="form-control" asp-for="Zip" />
+            <span asp-validation-for="Zip"></span>
+        </div>
+    </div>
+
+
+
+    @* House Floorplan *@
+
+    <h2>Floor Plan</h2>
+
+    <hr class="mb-4" />
+    <h4 class="mb-3">Floor Plan</h4>
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label asp-for="Bedroom">Bedrooms</label>
+            <select class="form-control" asp-for="Bedroom">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <span asp-validation-for="Bedroom"></span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label asp-for="Bathroom">Bathrooms</label>
+            <select class="form-control" asp-for="Bathroom">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <span asp-validation-for="Bathroom"></span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label asp-for="Kitchen">Kictchen</label>
+            <select class="form-control" asp-for="Kitchen">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <span asp-validation-for="Kitchen"></span>
+        </div>
+    </div>
+    <div class="row">
+        <hr class="mb-4" />
+        <div class="col-md-10 mb-3">
+            <label asp-for="SqrFeet"></label>
+            <input type="text" class="form-control" asp-for="SqrFeet" />
+            <span asp-validation-for="SqrFeet"></span>
+        </div>
+    </div>
+    <div class="row">
+        <hr class="mb-4" />
+        <div class="col-md-10 mb-3">
+            <label asp-for="Amendities">Amenities</label>
+            <textarea class="form-control" asp-for="Amendities"></textarea>
+            <span asp-validation-for="Amendities"></span>
+        </div>
+    </div>
+
+    @* Extra Information*@
+    <h2>Extra Information</h2>
+
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label asp-for="PetFriendly">Pet Friendly?</label>
+            <label class="radio-inline">
+                <input type="radio" name="pet" asp-for="PetFriendly" value="True" />Yes
+            </label>
+            <label class="radio-inline">
+                <input type="radio" asp-for="PetFriendly" value="False" />No
+            </label>
+            <span asp-validation-for="PetFriendly"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label asp-for="PeopleSignedUp">How many people needed?</label>
+            <select class="form-control" asp-for="PeopleSignedUp">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <span asp-validation-for="PeopleSignedUp"></span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label asp-for="RoomAvailable">How many rooms available?</label>
+            <select class="form-control" asp-for="RoomAvailable">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <span asp-validation-for="RoomAvailable"></span>
+        </div>
+    </div>
+    <br />
+
     <div>
         <label asp-for="Images"></label>
-        <input type="file" id="file" asp-for="Images" multiple/>
+        <input type="file" id="file" asp-for="Images" multiple />
         <span asp-validation-for="Images"></span>
     </div>
 
-
-    <input type="submit" name="save" value="Save" />
+    @*@{foreach (String imgsrc in Model.GetImages())
+            {
+                <img src="@imgsrc" style="max-height:500px;max-width:500px" />
+            }
+        }*@
+    <br />
+    <input class="btn btn-danger btn-lg" type="submit" name="save" value="Save" style="width: 35%" />
 </form>
 
 
