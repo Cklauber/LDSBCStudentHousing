@@ -61,7 +61,26 @@ namespace StudentHousing.Controllers
                 ListingModel Listing = _model.Get(_listing.Id);
                 Listing.Name = _listing.Name;
                 Listing.Description = _listing.Description;
-
+                Listing.ContactName = _listing.ContactName;
+                Listing.Email = _listing.Email;
+                Listing.PhoneNumber = _listing.PhoneNumber;
+                Listing.Rent = _listing.Rent;
+                Listing.RentIncludeUtil = _listing.RentIncludeUtil;
+                Listing.Utilities = _listing.Utilities;
+                Listing.DownPayment = _listing.DownPayment;
+                Listing.Address1 = _listing.Address1;
+                Listing.Address2 = _listing.Address2;
+                Listing.City = _listing.City;
+                Listing.State = _listing.State;
+                Listing.Zip = _listing.Zip;
+                Listing.Bedroom = _listing.Bedroom;
+                Listing.Bathroom = _listing.Bathroom;
+                Listing.Kitchen = _listing.Kitchen;
+                Listing.SqrFeet = _listing.SqrFeet;
+                Listing.Amendities = _listing.Amendities;
+                Listing.PetFriendly = _listing.PetFriendly;
+                Listing.PeopleSignedUp = _listing.PeopleSignedUp;
+                Listing.RoomAvailable = _listing.RoomAvailable;             
                 //TODO: Edit pictures.
                 //Probably the easiest way is going to be transforming the images, sending it
                 //    to the _listing and then comparing with the picture in the Listing.

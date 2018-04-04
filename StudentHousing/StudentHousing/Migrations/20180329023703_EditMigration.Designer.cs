@@ -3,15 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using StudentHousing.Data;
 using System;
 
 namespace StudentHousing.Migrations
 {
     [DbContext(typeof(ListingDbContext))]
-    partial class ListingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180329023703_EditMigration")]
+    partial class EditMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

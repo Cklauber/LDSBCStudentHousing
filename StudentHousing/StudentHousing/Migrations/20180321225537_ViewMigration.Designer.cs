@@ -3,15 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using StudentHousing.Data;
 using System;
 
 namespace StudentHousing.Migrations
 {
     [DbContext(typeof(ListingDbContext))]
-    partial class ListingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180321225537_ViewMigration")]
+    partial class ViewMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,33 +56,19 @@ namespace StudentHousing.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<string>("ContactName");
-
                     b.Property<string>("Description")
                         .IsRequired();
 
                     b.Property<decimal>("DownPayment");
 
-                    b.Property<string>("Email");
-
                     b.Property<int>("Kitchen");
-
-                    b.Property<string>("MyProperty");
 
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int>("PeopleSignedUp");
-
-                    b.Property<bool>("PetFriendly");
-
-                    b.Property<int>("PhoneNumber");
-
                     b.Property<decimal>("Rent");
 
                     b.Property<bool>("RentIncludeUtil");
-
-                    b.Property<int>("RoomAvailable");
 
                     b.Property<decimal>("SqrFeet");
 
@@ -88,6 +77,12 @@ namespace StudentHousing.Migrations
                     b.Property<decimal>("Utilities");
 
                     b.Property<int>("Zip");
+
+                    b.Property<string>("contactName");
+
+                    b.Property<string>("email");
+
+                    b.Property<int>("phoneNumber");
 
                     b.HasKey("Id");
 
