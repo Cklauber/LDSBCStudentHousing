@@ -1,7 +1,26 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using StudentHousing.Identity
+
+@inject SignInManager<StudentHousingUser> SignInManager
+@inject UserManager<StudentHousingUser> UserManager
+
+
+
+
+@{
     ViewData["Title"] = "About";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
 <p>Use this area to provide additional information.</p>
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul>
+        @foreach (var claim in User.Claims)
+        {
+            <li><strong>@claim.Type</strong>: @claim.Value</li>
+        }
+    </ul>
+
+}

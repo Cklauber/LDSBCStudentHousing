@@ -13,5 +13,12 @@ namespace StudentHousing.Identity
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<StudentHousingUser>(user => user.HasIndex(x => x.FirstName).IsUnique(false));
+            builder.Entity<StudentHousingUser>(user => user.HasIndex(x => x.LastName).IsUnique(false));
+        }
     }
 }

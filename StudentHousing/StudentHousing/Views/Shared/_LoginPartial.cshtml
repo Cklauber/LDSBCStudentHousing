@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@if (!User.Identity.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Account" asp-action="Register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        @*<li class="nav-item"><a asp-area="" asp-controller="Account" asp-action="ManageItems">Howdy @User.Claims.FirstOrDefault(c => c.Type == "FirstName").Value!</a></li>*@
+        <li class="nav-item"><a asp-area="" asp-controller="Account" asp-action="ManageItems">Howdy @User.Claims.FirstOrDefault(c => c.Type == "FirstName").Value!</a></li>
+        <form asp-area="" asp-controller="Account" asp-action="LogOut" method="post" id="logoutForm" class="navbar-right">
+            <button type="submit" class="btn btn-link navbar-btn navbar-link"><span class="glyphicon glyphicon-log-out"></span> Log off</button>
+        </form>
+    </ul>
+}

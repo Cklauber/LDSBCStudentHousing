@@ -42,14 +42,14 @@ namespace StudentHousing
                 opt => opt.UseSqlServer(Configuration.GetConnectionString("UserIdentity"),
                 sql => sql.MigrationsAssembly(migrationAssembly)));
 
-            services.AddIdentityCore<StudentHousingUser>(options => { });
+            services.AddIdentity<StudentHousingUser, IdentityRole>(options => { }).
+                AddEntityFrameworkStores<StudentHousingUserDBContext>();
 
 
-            services.AddScoped<IUserStore<StudentHousingUser>, UserOnlyStore<StudentHousingUser, StudentHousingUserDBContext>>();
-
-            services.AddAuthentication("cookies")
-                .AddCookie("cookies", options => options.LoginPath = "/Account/Login");
-
+            //services.AddScoped<IUserStore<StudentHousingUser>, UserOnlyStore<StudentHousingUser, StudentHousingUserDBContext>>();
+            services.AddScoped<IUserClaimsPrincipalFactory<StudentHousingUser>,
+            StudentHousingUserClaimsPrincipalFactory>();
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
