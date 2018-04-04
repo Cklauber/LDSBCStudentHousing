@@ -43,8 +43,11 @@ namespace StudentHousing
                 sql => sql.MigrationsAssembly(migrationAssembly)));
 
             services.AddIdentity<StudentHousingUser, IdentityRole>(options => { }).
-                AddEntityFrameworkStores<StudentHousingUserDBContext>();
+                AddEntityFrameworkStores<StudentHousingUserDBContext>()
+                .AddDefaultTokenProviders();
 
+            services.Configure<DataProtectionTokenProviderOptions>(options =>
+            options.TokenLifespan = TimeSpan.FromHours(5));
 
             //services.AddScoped<IUserStore<StudentHousingUser>, UserOnlyStore<StudentHousingUser, StudentHousingUserDBContext>>();
             services.AddScoped<IUserClaimsPrincipalFactory<StudentHousingUser>,
