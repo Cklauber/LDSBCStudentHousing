@@ -55,7 +55,8 @@ namespace StudentHousing.Controllers
                         UserName = model.UserName,
                         FirstName = model.FirstName,
                         LastName = model.LastName,
-                        Email = model.Email
+                        Email = model.Email,
+                        PhoneNumber = model.PhoneNumber
                     };
 
 
@@ -74,7 +75,7 @@ namespace StudentHousing.Controllers
                     EmailConfirmation(user, confirmationEmail);
                     ViewBag.message = "<h3>An e-mail was sent to your e-mail address with the confirmation link to register to the website. Please check your e-mail and open the link.</h3>";
                     ViewBag.title = "Check e-mail";
-                    return RedirectToAction("Message");
+                    return View("Message");
                 }
                 AddErrors(result);
 

@@ -20,6 +20,7 @@ namespace StudentHousing.Identity
             var identity = await base.GenerateClaimsAsync(user);
             identity.AddClaim(new Claim("FirstName", user.FirstName));
             identity.AddClaim(new Claim("Email", user.Email));
+            identity.AddClaim(new Claim("PhoneNumber", user.PhoneNumber));
             return identity;
         }
     }
