@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StudentHousing.CompositeModel;
+using StudentHousing.Identity;
 using StudentHousing.Models;
 using StudentHousing.Services;
 using System;
@@ -13,9 +16,12 @@ namespace StudentHousing.Controllers
 {
     public class ListingController : Controller
     {
+        private readonly UserManager<StudentHousingUser> _userManager;
         private IDataService _model;
-        public ListingController(IDataService itemData)
+        public ListingController(IDataService itemData, 
+            UserManager<StudentHousingUser> userManager)
         {
+            _userManager = userManager;
             _model = itemData;
 
         }
@@ -29,36 +35,47 @@ namespace StudentHousing.Controllers
             var Listing = _model.Get(id);
             return View(Listing);
         }
-        [HttpGet]
+        [HttpGet, Authorize] 
         public IActionResult Create()
         {
             return View();
         }
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken, Authorize]
         public async Task<IActionResult> Create(ListingModel _newListing, List<IFormFile> Images)
         {
             if (ModelState.IsValid)
             {
                 var newListing = _newListing;
                 newListing.Images = await ToImageList(Images);
+                var user = await _userManager.GetUserAsync(User);
+                newListing.CreatedBy = user.Id;
                 _model.Add(newListing);
                 return RedirectToAction(nameof(ViewItem), new { id = newListing.Id });
             }
             return View();
         }
-        [HttpGet]
-        public IActionResult Edit(int id)
+        [HttpGet, Authorize]
+        public async Task<IActionResult> Edit(int id)
         {
             var _listing = _model.Get(id);
-            return View(_listing);
+            var user = await _userManager.GetUserAsync(User);
+            if (_listing.CreatedBy == user.Id)
+            {
+                return View(_listing);
+            }
+            return Redirect(Request.Headers["Referer"]);
+
         }
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken, Authorize]
         public async Task<IActionResult> Edit(ListingEditModel _listing, List<IFormFile> Images)
         {
 
             if (ModelState.IsValid)
             {
                 ListingModel Listing = _model.Get(_listing.Id);
+                var user = await _userManager.GetUserAsync(User);
+                if (Listing.CreatedBy == user.Id)
+                { 
                 Listing.Name = _listing.Name;
                 Listing.Description = _listing.Description;
                 Listing.ContactName = _listing.ContactName;
@@ -104,6 +121,10 @@ namespace StudentHousing.Controllers
                 //}
                 _model.Update(Listing);
                 return RedirectToAction(nameof(ViewItem), new { id = Listing.Id });
+
+                }
+                ModelState.AddModelError("", "Something is not right. Are you sure this item belongs to you?");
+                return View();
             }
             return View();
 

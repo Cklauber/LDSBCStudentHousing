@@ -29,10 +29,25 @@
     <div class="row">
         <div class="col-md-4 mb-3">
             <label asp-for="PhoneNumber">Contact Phone#</label>
-            <input class="form-control" asp-for="PhoneNumber" />
+            <input class="form-control" asp-for="PhoneNumber" value="@User.Claims.FirstOrDefault(c => c.Type == "PhoneNumber").Value"/>
             <span asp-validation-for="PhoneNumber"></span>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="ContactName">Contact Name</label>
+            <input class="form-control" asp-for="ContactName" value="@User.Claims.FirstOrDefault(c => c.Type == "FullName").Value"/>
+            <span asp-validation-for="ContactName"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="Email">Contact Phone#</label>
+            <input class="form-control" asp-for="Email" value="@User.Claims.FirstOrDefault(c => c.Type == "Email").Value"/>
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+
 
 
     <input type="submit" name="save" value="Save" />

@@ -11,6 +11,9 @@ namespace StudentHousing.Identity
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-
+        public static implicit operator string(StudentHousingUser v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

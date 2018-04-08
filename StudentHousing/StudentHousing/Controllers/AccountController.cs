@@ -19,7 +19,8 @@ namespace StudentHousing.Controllers
         private readonly UserManager<StudentHousingUser> userManager;
         private readonly IUserClaimsPrincipalFactory<StudentHousingUser> claimsPrincipalFactory;
 
-        public AccountController(UserManager<StudentHousingUser> userManager, IUserClaimsPrincipalFactory<StudentHousingUser> claimsPrincipalFactory)
+        public AccountController(UserManager<StudentHousingUser> userManager,
+            IUserClaimsPrincipalFactory<StudentHousingUser> claimsPrincipalFactory)
         {
             this.userManager = userManager;
             this.claimsPrincipalFactory = claimsPrincipalFactory;

@@ -21,7 +21,7 @@ namespace StudentHousing.CompositeModel
         ////Contact Information
         public string ContactName { get; set; }
         public string Email { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         //Address
         public string Address1 { get; set; }

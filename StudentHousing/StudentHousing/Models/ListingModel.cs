@@ -13,7 +13,7 @@ namespace StudentHousing.Models
         ////Contact Information
         public string ContactName { get; set; }
         public string Email { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         //House General and Location
         [Required]
@@ -50,7 +50,8 @@ namespace StudentHousing.Models
         public int RoomAvailable { get; set; }
         public string MyProperty { get; set; }
 
-
+        //User
+        public string CreatedBy { get; set; }
 
         public List<String> GetImagesToSrc()
         {
