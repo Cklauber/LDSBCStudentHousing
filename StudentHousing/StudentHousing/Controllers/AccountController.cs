@@ -62,6 +62,11 @@ namespace StudentHousing.Controllers
 
 
                 }
+                if (userManager.FindByIdAsync(user.Id) != null)
+                {
+                    ModelState.AddModelError("", "User already registered. Try logging in.");
+                    return View(model);
+                }
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
