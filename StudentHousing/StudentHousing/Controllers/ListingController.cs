@@ -30,6 +30,12 @@ namespace StudentHousing.Controllers
             var model = _model.GetAll();
             return View(model);
         }
+        public async Task<IActionResult> ManageItems()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var model = _model.AllFromUser(user.Id);
+            return View(model);
+        }
         public IActionResult ViewItem(int id)
         {
             var Listing = _model.Get(id);
@@ -49,6 +55,7 @@ namespace StudentHousing.Controllers
                 newListing.Images = await ToImageList(Images);
                 var user = await _userManager.GetUserAsync(User);
                 newListing.CreatedBy = user.Id;
+                newListing.IsActive = true;
                 _model.Add(newListing);
                 return RedirectToAction(nameof(ViewItem), new { id = newListing.Id });
             }
@@ -63,7 +70,7 @@ namespace StudentHousing.Controllers
             {
                 return View(_listing);
             }
-            return Redirect(Request.Headers["Referer"]);
+            return RedirectToAction("Index", "Home");
 
         }
         [HttpPost, ValidateAntiForgeryToken, Authorize]
@@ -97,7 +104,8 @@ namespace StudentHousing.Controllers
                 Listing.Amendities = _listing.Amendities;
                 Listing.PetFriendly = _listing.PetFriendly;
                 Listing.PeopleSignedUp = _listing.PeopleSignedUp;
-                Listing.RoomAvailable = _listing.RoomAvailable;             
+                Listing.RoomAvailable = _listing.RoomAvailable;
+                Listing.IsActive = _listing.IsActive;
                 //TODO: Edit pictures.
                 //Probably the easiest way is going to be transforming the images, sending it
                 //    to the _listing and then comparing with the picture in the Listing.

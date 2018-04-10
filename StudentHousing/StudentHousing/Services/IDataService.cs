@@ -14,5 +14,7 @@ namespace StudentHousing.Services
         ListingModel Update(ListingModel listing);
         List<Images> GetImagesOnly(int id);
         ListingModel GetListingOnly(int id);
+        IEnumerable<ListingModel> AllFromUser(string userId);
+
     }
 }

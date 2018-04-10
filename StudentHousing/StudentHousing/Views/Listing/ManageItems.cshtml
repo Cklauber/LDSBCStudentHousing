@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "ManageItems";
+}
+
+<h2>ManageItems</h2>
+
+<div>
+
+    <table class="table-responsive">
+        <thead class="danger">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Active?</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ListingItem in Model)
+            {
+            <tr>
+                <td> @ListingItem.Id</td>
+                <td> @ListingItem.Name</td>
+                <td> @ListingItem.Description</td>
+                <td> @ListingItem.IsActive</td>
+                <td><a class="btn btn-default" asp-action="ViewItem" asp-route-id="@ListingItem.Id">Details</a></td>
+                <td><a class="btn btn-default" asp-action="Edit" asp-route-id="@ListingItem.Id">Edit</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-success" asp-action="Create">New Listing</a>
+    }
+
+</div>

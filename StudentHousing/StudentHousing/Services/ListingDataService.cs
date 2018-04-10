@@ -41,7 +41,7 @@ namespace StudentHousing.Services
 
         public IEnumerable<ListingModel> GetAll()
         {
-            return _context.Items.OrderBy(x => x.Name);
+            return _context.Items.OrderBy(x => x.Name).Where(x => x.IsActive == true);
         }
 
         public ListingModel Update(ListingModel listing)
@@ -59,6 +59,11 @@ namespace StudentHousing.Services
                 Images.Add(img);
             }
             return Images;
+        }
+
+        public IEnumerable<ListingModel> AllFromUser(string userId)
+        {
+            return _context.Items.OrderBy(x => x.Name).Where(x => x.CreatedBy == userId);
         }
 
         //public void AttachImages()

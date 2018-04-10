@@ -52,6 +52,7 @@ namespace StudentHousing.Models
 
         //User
         public string CreatedBy { get; set; }
+        public bool IsActive { get; set; }
 
         public List<String> GetImagesToSrc()
         {

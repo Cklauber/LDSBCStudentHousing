@@ -62,11 +62,11 @@ namespace StudentHousing.Controllers
 
 
                 }
-                if (userManager.FindByIdAsync(user.Id) != null)
-                {
-                    ModelState.AddModelError("", "Username or e-mail already registered. Try logging in.");
-                    return View(model);
-                }
+                //if (userManager.FindByIdAsync(user.Id) != null)
+                //{
+                //    ModelState.AddModelError("", "Username or e-mail already registered. Try logging in.");
+                //    return View(model);
+                //}
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -83,7 +83,15 @@ namespace StudentHousing.Controllers
                     ViewBag.title = "Check e-mail";
                     return View("Message");
                 }
-                AddErrors(result);
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+
+                        return View();
+                    }
 
             }
 

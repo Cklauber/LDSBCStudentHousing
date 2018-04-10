@@ -51,6 +51,7 @@ namespace StudentHousing.CompositeModel
         public int PeopleSignedUp { get; set; }
         public int RoomAvailable { get; set; }
         public string MyProperty { get; set; }
+        public bool IsActive { get; set; }
 
         public List<byte[]> BitImages { get; set; }
         public List<String> GetImages()
