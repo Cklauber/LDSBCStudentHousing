@@ -50,7 +50,7 @@ namespace StudentHousing
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Listing}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
