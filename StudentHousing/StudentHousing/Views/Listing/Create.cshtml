@@ -3,7 +3,64 @@
     ViewData["Title"] = "Create";
 }
 
+<script>
+    function validate() {
+        document.getElementById("phoneError").innerHTML = "";
+        document.getElementById("cityError").innerHTML = "";
+        document.getElementById("stateError").innerHTML = "";
+        document.getElementById("zipError").innerHTML = "";
 
+
+        var str_phone = document.getElementById("phone").value;
+        if (runPhonenumber(str_phone) == false) {
+            return false;
+        }
+
+        var str_city = document.getElementById("city").value;
+        if (str_city == "Choose...") {
+            document.getElementById("cityError").innerHTML = "Invalid City";
+            return false;
+        }
+
+        var str_state = document.getElementById("state").value;
+        if (str_state == "Choose...") {
+            document.getElementById("stateError").innerHTML = "Invalid State";
+            return false;
+        }
+
+        var str_zip = document.getElementById("zip").value;
+        if (runZipcode(str_zip) == false) {
+            return false;
+        }
+
+        return true;
+    }
+
+    function runPhonenumber(userText) {
+        //Validate phone number.
+        var pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        if (pattern.test(userText)) {
+            return true;
+        } else {
+            document.getElementById("phoneError").innerHTML = "Invalid Phone number";
+            return false;
+        }
+    }
+
+    function runZipcode(userText) {
+        //Validate phone number.
+        var pattern = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+        if (pattern.test(userText)) {
+            return true;
+        } else {
+            document.getElementById("zipError").innerHTML = "Invalid ZIP code";
+            return false;
+        }
+
+    }
+
+
+</script>
 
 <div class="py-5 text-center">
     <h2>Listing Form</h2>
@@ -20,22 +77,22 @@
             <h4 class="mb-3">Contact Information</h4>
             <div class="col-md-4 mb-3">
                 <label>Contact Name</label>
-                <input type="text" class="form-control" asp-for="ContactName" required />
-                <span asp-validation-for="ContactName"></span>
+                <input type="text" class="form-control" name="ContactName" asp-for="ContactName" required />
+                <span style="color: red" id="nameError" asp-validation-for="ContactName"></span> 
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label>Email</label>
-                <input type="email" class="form-control" asp-for="Email" placeholder="you@example.com" />
-                <span asp-validation-for="Email"></span>
+                <input type="email" id="email" class="form-control" asp-for="Email" placeholder="you@example.com" />
+                <span style="color: red" id="emailError"asp-validation-for="Email"></span> 
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label>Contact Phone#</label>
-                <input type="text" class="form-control" asp-for="PhoneNumber" />
-                <span asp-validation-for="PhoneNumber"></span>
+                <input type="text" id="phone" class="form-control" asp-for="PhoneNumber" />
+                <span style="color: red" id="phoneError" asp-validation-for="PhoneNumber"></span>
             </div>
         </div>
         <div class="row">
@@ -44,27 +101,27 @@
             <div class="col-md-4 mb-3">
                 <label>Property Name</label>
                 <input type="text" class="form-control" asp-for="Name" required />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <span style="color: red" asp-validation-for="Name" class="text-danger"></span>
             </div>
         </div>
         <div>
             <label asp-for="Images"></label>
             <input type="file" id="file" asp-for="Images" multiple />
-            <span asp-validation-for="Images"></span>
+            <span style="color: red" asp-validation-for="Images"></span>
         </div>
         <div class="row">
             <div class="col-md-8 mb-3">
                 <label>Property Description</label>
                 <input type="text" class="form-control" asp-for="Description" required />
-                <span asp-validation-for="Description"></span>
+                <span style="color: red" asp-validation-for="Description"></span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-10 mb-3">
                 <label>Address Line#1</label>
-                <input type="text" class="form-control" asp-for="Address1" />
-                <span asp-validation-for="Address1"></span>
+                <input type="text" class="form-control" asp-for="Address1" required/>
+                <span style="color: red" asp-validation-for="Address1"></span>
             </div>
         </div>
 
@@ -72,33 +129,33 @@
             <div class="col-md-10 mb-3">
                 <label>Address Line#2</label>
                 <input type="text" class="form-control" asp-for="Address2" />
-                <span asp-validation-for="Address2"></span>
+                <span style="color: red" asp-validation-for="Address2"></span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-3 mb-3">
                 <label>City</label>
-                <select class="form-control" asp-for="City" required>
+                <select class="form-control" asp-for="City" id="city" required>
                     <option>Choose...</option>
                     <option>SLC</option>
                 </select>
-                <span asp-validation-for="City"></span>
+                <span style="color: red" id="cityError" asp-validation-for="City"></span>
             </div>
 
             <div class="col-md-3 mb-3">
                 <label>State</label>
-                <select class="form-control" asp-for="State" required>
+                <select class="form-control" asp-for="State" id="state" required> 
                     <option>Choose...</option>
                     <option>Utah</option>
                 </select>
-                <span asp-validation-for="State"></span>
+                <span style="color: red" id="stateError" asp-validation-for="State"></span>
             </div>
 
             <div class="col-md-4 mb-3">
                 <label>Zip</label>
-                <input type="text" class="form-control" asp-for="Zip" required />
-                <span asp-validation-for="Zip"></span>
+                <input type="text" class="form-control" id="zip" asp-for="Zip" required />
+                <span style="color: red" id="zipError" asp-validation-for="Zip"></span>
             </div>
 
         </div>
@@ -107,20 +164,20 @@
             <h4 class="mb-3">House Financial Information</h4>
             <div class="col-md-3 mb-3">
                 <label>Rent</label>
-                <input type="number" step="0.01" min="0" class="form-control" asp-for="Rent" />
-                <span asp-validation-for="Rent"></span>
+                <input type="number" step="0.01" min="0" class="form-control" asp-for="Rent" required/>
+                <span style="color: red" asp-validation-for="Rent"></span>
             </div>
             <div class="col-md-3 mb-3">
                 <label>DownPayment</label>
-                <input type="number" step="0.01" min="0" class="form-control" asp-for="DownPayment" />
-                <span asp-validation-for="DownPayment"></span>
+                <input type="number" step="0.01" min="0" class="form-control" asp-for="DownPayment" required/>
+                <span style="color: red" asp-validation-for="DownPayment"></span>
             </div>
 
 
             <div class="col-md-3 mb-3">
                 <label>Utility</label>
-                <input type="number" step="0.01" min="0" class="form-control" asp-for="Utilities" />
-                <span asp-validation-for="Utilities"></span>
+                <input type="number" step="0.01" min="0" class="form-control" asp-for="Utilities" required/>
+                <span style="color: red" asp-validation-for="Utilities"></span>
             </div>
         </div>
 
@@ -133,7 +190,7 @@
                 <label>
                     <input type="radio" asp-for="DownPayment" checked="checked" value="false" />Utility NOT Included with Rent
                 </label>
-                <span asp-validation-for="DownPayment"></span>
+                <span style="color: red" asp-validation-for="DownPayment"></span>
             </div>
         </div>
 
@@ -151,7 +208,7 @@
                     <option value="5">5</option>
                     <option value="6">6</option>
                 </select>
-                <span asp-validation-for="Bedroom"></span>
+                <span style="color: red" asp-validation-for="Bedroom"></span>
             </div>
             <div class="col-md-3 mb-3">
                 <label asp-for="Bathroom">Bathrooms</label>
@@ -161,7 +218,7 @@
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-                <span asp-validation-for="Bathroom"></span>
+                <span style="color: red" asp-validation-for="Bathroom"></span>
             </div>
             <div class="col-md-3 mb-3">
                 <label asp-for="Kitchen">Kictchen</label>
@@ -170,12 +227,12 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                <span asp-validation-for="Kitchen"></span>
+                <span style="color: red" asp-validation-for="Kitchen"></span>
             </div>
             <div class="col-md-3 mb-3">
                 <label>Square Feet</label>
-                <input type="number" step="0.01" min="0" class="form-control" asp-for="SqrFeet" />
-                <span asp-validation-for="SqrFeet"></span>
+                <input type="number" step="0.01" min="0" class="form-control" asp-for="SqrFeet" required/>
+                <span style="color: red" asp-validation-for="SqrFeet"></span>
             </div>
         </div>
 
@@ -183,7 +240,7 @@
             <div class="col-md-12 mb-3">
                 <label>Amendities</label>
                 <textarea class="form-control" asp-for="Amendities"></textarea>
-                <span asp-validation-for="Amendities"></span>
+                <span style="color: red" asp-validation-for="Amendities"></span>
             </div>
         </div>
 
@@ -199,7 +256,7 @@
                 <label>
                     <input type="radio" asp-for="PetFriendly" checked="checked" value="false" />No
                 </label>
-                <span asp-validation-for="PetFriendly"></span>
+                <span style="color: red" asp-validation-for="PetFriendly"></span>
             </div>
         </div>
         <div class="row">
@@ -213,7 +270,7 @@
                     <option value="5">5</option>
                     <option value="6">6</option>
                 </select>
-                <span asp-validation-for="PeopleSignedUp"></span>
+                <span style="color: red" asp-validation-for="PeopleSignedUp"></span>
             </div>
 
 
@@ -225,16 +282,19 @@
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-                <span asp-validation-for="RoomAvailable"></span>
+                <span style="color: red" asp-validation-for="RoomAvailable"></span>
             </div>
         </div>
         <div class="row">
             <hr class="mb-4" />
             <div class="col-md-6 col-md-offset-3 mb-3">
-                <button class="btn btn-primary btn-lg btn-block" type="submit" name="save" value="Save">Register</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="save" value="Save" onclick="validate()">Register</button>
             </div>
         </div>
     </div>
 </form>
+
+
+
 
 
