@@ -11,9 +11,10 @@ using System;
 namespace StudentHousing.Migrations
 {
     [DbContext(typeof(ListingDbContext))]
-    partial class ListingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180403002639_ListingMigration2")]
+    partial class ListingMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,8 +64,6 @@ namespace StudentHousing.Migrations
                     b.Property<string>("Email");
 
                     b.Property<int>("Kitchen");
-
-                    b.Property<string>("MyProperty");
 
                     b.Property<string>("Name")
                         .IsRequired();
