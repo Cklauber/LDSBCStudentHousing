@@ -56,6 +56,10 @@ namespace StudentHousing.Models
         {
             List<String> Imgsources = new List<string>();
             string imgsrc = "";
+            if(Images == null)
+            {
+                return Imgsources;
+            }
             if (Images.Count > 0)
             {
                 foreach (Images img in this.Images)

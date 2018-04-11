@@ -22,6 +22,10 @@ namespace StudentHousing.Controllers
         public IActionResult Index()
         {
             var model = _model.GetAll();
+            foreach(var myModel in model)
+            {
+                myModel.Images = _model.GetImagesOnly(myModel.Id);
+            }
             return View(model);
         }
         public IActionResult ViewItem(int id)
